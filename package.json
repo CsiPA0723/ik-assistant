@@ -8,7 +8,7 @@
     "watch:build": "SET NODE_OPTIONS=--openssl-legacy-provider && webpack --watch --mode=development",
     "watch:server": "nodemon --require dotenv/config --trace-warnings --enable-source-maps -w ./dist ./dist/main.js",
     "build": "yarn clean && SET NODE_OPTIONS=--openssl-legacy-provider && webpack --optimize-minimize",
-    "serve": "node dist/server.js",
+    "serve": "node main.js",
     "lint": "eslint .",
     "lint:fix": "eslint --fix ."
   },
