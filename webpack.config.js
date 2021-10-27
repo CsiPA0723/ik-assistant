@@ -19,7 +19,8 @@ const Default = {
     path: join(__dirname, "dist"),
     chunkFilename: "[name].bundle.js",
     filename: "[name].js",
-    assetModuleFilename: "resources/[name][hash][ext]",
+    assetModuleFilename: "resources/[name]-[hash][ext]",
+    clean: true,
   },
   mode: process.env.NODE_ENV || "production",
   module: {
@@ -33,6 +34,13 @@ const Default = {
             transpileOnly: true,
             getCustomTransformers: () => ({ before: [tsNameof] }),
           },
+        },
+      },
+      {
+        test: /\.json$/i,
+        type: "asset/resource",
+        generator: {
+          filename: "./[name][ext]",
         },
       },
       {
