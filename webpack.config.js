@@ -1,5 +1,6 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
 const { join } = require("path");
+const { existsSync } = require("fs");
 const tsNameof = require("ts-nameof");
 const ForkTsCheckerWebpackPlugin = require("fork-ts-checker-webpack-plugin");
 const nodeExternals = require("webpack-node-externals");
@@ -64,7 +65,7 @@ const Default = {
       },
     }),
     new CopyWebpackPlugin({
-      patterns: ["LICENSE", "package.json"],
+      patterns: ["LICENSE", "package.json"].concat(existsSync("./.env") ? [".env"] : []),
     }),
   ],
 };
