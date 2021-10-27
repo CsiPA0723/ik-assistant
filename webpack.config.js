@@ -38,13 +38,6 @@ const Default = {
         },
       },
       {
-        test: /\.json$/i,
-        type: "asset/resource",
-        generator: {
-          filename: "./[name][ext]",
-        },
-      },
-      {
         test: /\.(png|svg|jpg|jpeg|gif|mp3)$/i,
         type: "asset/resource",
       },
