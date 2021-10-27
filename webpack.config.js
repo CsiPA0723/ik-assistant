@@ -46,6 +46,9 @@ const Default = {
       chunks: "all",
     },
   },
+  watchOptions: {
+    ignored: "**/node_modules",
+  },
   plugins: [
     new ForkTsCheckerWebpackPlugin({
       eslint: {
