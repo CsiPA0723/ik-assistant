@@ -1,9 +1,12 @@
 import { Client, Intents } from "discord.js";
 
+import "./command-handler";
+import logger from "./utils/logger";
+
 const client = new Client({ intents: [Intents.FLAGS.GUILDS] });
 
 client.once("ready", () => {
-  console.log("Ready!");
+  logger.info("Ready!");
 });
 
-client.login(process.env.TOKEN);
+client.login(process.env.TOKEN).catch(logger.error);
