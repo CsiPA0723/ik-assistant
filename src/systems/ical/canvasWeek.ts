@@ -73,7 +73,7 @@ export default function (days: Collection<number, Collection<DateTime, icalEvent
         ctx.fillText(text, sx + padding, sy + padding * 2, rightPadding);
 
         // Time
-        const timeText = `${start.toFormat("HH:mm")}\n${end.toFormat("HH:mm")}`;
+        const timeText = `${start.toLocal().toFormat("HH:mm")}\n${end.toLocal().toFormat("HH:mm")}`;
         const timeTextMetrics = ctx.measureText(timeText);
         ctx.font = `18pt Cascadia Code PL`;
         ctx.fillText(
