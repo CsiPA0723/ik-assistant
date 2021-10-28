@@ -39,6 +39,13 @@ class Week extends Command {
           days.set(ev.start.day, coll);
         }
       });
+      {
+        const temp = weekData.find((d) => d.location === "LD-4-202");
+
+        const coll = days.get(dt.startOf("week").day);
+        coll.set(temp.start, temp);
+        days.get(temp.start.day).delete(temp.start);
+      }
 
       days.sort((dA, dB) => {
         return dA.first().start.day - dB.first().start.day;
@@ -48,7 +55,7 @@ class Week extends Command {
 
       days.forEach((day) => {
         day.sort((dA, dB) => {
-          return dA.start.diff(dB.start).as("minutes");
+          return dA.start.hour - dB.start.hour;
         });
         if (day.size > maxDaySize) maxDaySize = day.size;
       });
