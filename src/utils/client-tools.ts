@@ -1,7 +1,7 @@
 import { prefix, devId } from "../settings.json";
 import { DateTime } from "luxon";
 import { User } from "discord.js";
-console.log(prefix, devId);
+
 const prefixRegex = new RegExp(`^${escapeRegExp(prefix)}\\w+`);
 
 function escapeRegExp(text: string): string {

@@ -41,6 +41,10 @@ const Default = {
         test: /\.(png|svg|jpg|jpeg|gif|mp3)$/i,
         type: "asset/resource",
       },
+      {
+        test: /\.(woff|woff2|eot|ttf|otf)$/i,
+        type: "asset/resource",
+      },
     ],
   },
   optimization: {
